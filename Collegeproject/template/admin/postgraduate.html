@@ -1,0 +1,308 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+        <div class="col-md-8 bg-white rounded-5 shadow p-4">
+            <h1>Upload MCS Info :</h1>
+            <form action="/admin/save_mcs/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="row p-4 justify-content-center">
+                <textarea name="mcsdis"  class="form-control col-md-6 m-3">{{mcss.mcsdis}}</textarea>
+                <label>Image :</label>
+                <input type="file" name="mcsimg" class="form-control col-md-3 m-3">
+                <div class="col-md-3">
+                    <img src="/{{mcss.mcsimg}}" width="100px">
+                </div>
+                <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+              </div>
+            </form>
+    <hr>
+            <form action="/admin/save_mcscd/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row p-4 justify-content-center">
+                    <label>Course Details : </label>
+                  <textarea name="mcscd" class="form-control col-md-6 m-3">{{mcscds.mcscd}}</textarea>
+                  <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+                </div>
+            </form>
+    
+    <hr>
+    
+            <form action="/admin/save_mcsis/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row p-4 justify-content-center">
+                    <label>International Student Categories : </label>
+                  <textarea name="mcsis" class="form-control col-md-6 m-3"></textarea>
+                  <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+                </div>
+            </form>
+    
+            <table class="table table-sm table-borderd  text-center">
+                <tr>
+                    <th>Action</th>
+                    <th>Rules</th>
+                </tr>
+                {% for i in mcsiss %}
+                <tr>
+                  <th>
+                    <a href="/admin/delete_mcsis?id={{i.id}}">
+                        <button class="btn"><i class="fa fa-trash"></i></button>
+                    </a>
+                  </th>
+                  <th>{{i.mcsis}}</th>
+                </tr>
+                {% endfor %}
+              </table>
+    
+    <hr>
+    
+    
+            <form action="/admin/save_mcsnri/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row p-4 justify-content-center">
+                    <label>NRI Student Categories : </label>
+                <textarea name="mcsnri" class="form-control col-md-6 m-3"></textarea>
+                <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+                </div>
+            </form>
+    
+            <table class="table table-sm table-borderd  text-center">
+                <tr>
+                    <th>Action</th>
+                    <th>Rules</th>
+                </tr>
+                {% for i in mcsnris %}
+                <tr>
+                <th>
+                    <a href="/admin/delete_mcsnri?id={{i.id}}">
+                        <button class="btn"><i class="fa fa-trash"></i></button>
+                    </a>
+                </th>
+                <th>{{i.mcsnri}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+    
+    
+    <hr>
+    
+            <form action="/admin/save_mcsadq/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row p-4 justify-content-center">
+                    <label>Admission Queries : </label>
+                  <textarea name="mcsadq" class="form-control col-md-6 m-3">{{mcsadqs.mcsadq}}</textarea>
+                  <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+                </div>
+            </form>
+    
+    <hr>
+    
+    
+            <form action="/admin/save_mcselg/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row p-4 justify-content-center">
+                    <label>Eligibility : </label>
+                <textarea name="mcselg" class="form-control col-md-6 m-3"></textarea>
+                <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+                </div>
+            </form>
+    
+            <table class="table table-sm table-borderd  text-center">
+                <tr>
+                    <th>Action</th>
+                    <th>Rules</th>
+                </tr>
+                {% for i in mcselgs %}
+                <tr>
+                <th>
+                    <a href="/admin/delete_mcselg?id={{i.id}}">
+                        <button class="btn"><i class="fa fa-trash"></i></button>
+                    </a>
+                </th>
+                <th>{{i.mcselg}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+    
+    
+    <hr>
+    
+    
+    
+            <form action="/admin/save_mcsadp/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row p-4 justify-content-center">
+                    <label>Admission Process : </label>
+                <textarea name="mcsadp" class="form-control col-md-6 m-3"></textarea>
+                <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+                </div>
+            </form>
+    
+            <table class="table table-sm table-borderd  text-center">
+                <tr>
+                    <th>Action</th>
+                    <th>Rules</th>
+                </tr>
+              {% for i in mcsadps %}
+                <tr>
+                <th>
+                    <a href="/admin/delete_mcsadp?id={{i.id}}">
+                        <button class="btn"><i class="fa fa-trash"></i></button>
+                    </a>
+                </th>
+                <th>{{i.mcsadp}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+    
+    
+    
+    
+          </div>
+
+      <hr class="mt-4">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Upload M.Com. Info :</h1>
+        <form>
+          <div class="row p-4 justify-content-center">
+            <input type="text" placeholder="Discription..." class="form-control col-md-6 m-3">
+            <label>Image :</label>
+            <input type="file" class="form-control col-md-6 m-3">
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+          </div>
+        </form>
+<hr>
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Course Details : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>International Student Categories : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+              <th>Delete</th>
+              <th>Info</th>
+            </tr>
+  
+          </table>
+
+<hr>
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>NRI Student Categories : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+<hr>
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Admission Queries : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Eligibility : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+<hr>
+
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Admission Process : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+
+
+      </div>
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

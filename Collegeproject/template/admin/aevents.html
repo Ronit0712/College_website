@@ -1,0 +1,76 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Events :</h1>
+       
+        <form action="/admin/save_event/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+            <div class="row p-4 justify-content-center">
+
+              <input type="file" name="eventimg" class="form-control col-md-6 m-3">
+
+              <input type="text" name="eventdate" placeholder="Ex. Feb 02, 2024" class="form-control col-md-6 m-3">
+
+              <input type="text" name="eventtitle" placeholder="Title" class="form-control col-md-6 m-3">
+
+              <textarea name="eventdis" placeholder="Discription" class="form-control col-md-6 m-3"></textarea>
+
+              <input type="text" name="puevent" placeholder="Past/Upcoming" class="form-control col-md-6 m-3">
+
+
+              <button class="btn btn-outline-success m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Image</th>  
+                <th>Date</th>  
+                <th>Title</th>
+                <th>Discription</th>
+                <th>Past/Upcoming</th>
+            </tr>
+            {% for i in events %}
+            <tr>
+              <th>
+                <a href="/admin/delete_event?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>
+                <img src="/{{i.eventimg}}" width="100px">
+              </th>  
+              <th>{{i.eventdate}}</th>  
+              <th>{{i.eventtitle}}</th>
+              <th>{{i.eventdis}}</th>
+              <th>{{i.puevent}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+      </div>
+
+     
+
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+{% include "admin/footer.html" %}

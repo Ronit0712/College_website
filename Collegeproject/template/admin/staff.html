@@ -1,0 +1,63 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Administrative Staff Members :</h1>
+       
+
+
+        <form action="/admin/save_staff/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+              <input type="text" name="stafname" placeholder="Name..." class="form-control col-md-6 m-3">
+              <input type="text" name="stafdep" placeholder="Department..." class="form-control col-md-6 m-3">
+            
+              <input type="file" name="stafimg" class="form-control col-md-6 m-3">
+
+              <button class="btn btn-outline-success   m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Photo</th>
+            </tr>
+            {% for i in staffs %}
+            <tr>
+              <th>
+                <a href="/admin/delete_staff?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>{{i.stafname}}</th>
+              <th>{{i.stafdep}}</th>
+              <th>
+                <img src="/{{i.stafimg}}" width="80px">
+              </th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+      </div>
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

@@ -1,0 +1,66 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+
+
+<hr>
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Why Study with us? :</h1>
+
+        <form action="/admin/save_whystd/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <input type="text" name="whytitle" placeholder="Title..." class="form-control col-md-6 m-3">
+
+            <textarea name="whydis" placeholder="Discription..." class="form-control col-md-6 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>
+               
+              <th>Title</th>
+              <th>Discription</th>
+          </tr>
+          {% for i in whystds %}
+          <tr>
+            <th>
+              <a href="/admin/delete_whystd?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+    
+            <th>{{i.whytitle}}</th>
+            <th>{{i.whydis}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+     
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

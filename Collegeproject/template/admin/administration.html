@@ -1,0 +1,64 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Administration Members :</h1>
+       
+
+
+        
+        <form action="/admin/save_admini/" method="post" enctype="multipart/form-data">
+          {% csrf_token%}
+            <div class="row p-4 justify-content-center">
+              <input type="text" name="admininame" placeholder="Name..." class="form-control col-md-6 m-3">
+              <input type="text" name="adminiposition" placeholder="Position..." class="form-control col-md-6 m-3">
+            
+              <input type="file" name="adminiimg"  class="form-control col-md-6 m-3">
+
+              <button class="btn btn-outline-success   m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Photo</th>
+            </tr>
+            {% for i in adminis %}
+            <tr>
+              <th>
+                <a href="/admin/delete_admini?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash "></i></button>
+                </a>
+              </th>
+              <th>{{i.admininame}}</th>
+              <th>{{i.adminiposition}}</th>
+              <th>
+                <img src="/{{i.adminiimg}}" width="80px">
+              </th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+      </div>
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

@@ -1,0 +1,58 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>About Us :</h1>
+       
+
+
+        <form action="/admin/save_about_us/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+              
+              <textarea name="aboutus_dis" class="form-control col-md-6 m-3"></textarea>
+            
+              <input type="file" name="aboutus_img" class="form-control col-md-6 m-3">
+
+              <button class="btn btn-outline-success m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Discription</th>
+                <th>Photo</th>
+            </tr>
+            {% for i in about_uss %}
+            <tr>
+              <th>Delete</th>
+              <th>{{i.aboutus_dis}}</th>
+              <th>
+                <img src="/{{i.aboutus_img}}" width="150px">
+              </th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+
+      </div>
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

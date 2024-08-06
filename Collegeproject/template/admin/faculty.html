@@ -1,0 +1,67 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Faculty List :</h1>
+       
+
+
+        <form action="/admin/save_faculty/" method="post" enctype="multipart/form-data">
+          {% csrf_token%}
+            <div class="row p-4 justify-content-center">
+              <input type="text" name="fname" placeholder="Name..." class="form-control col-md-6 m-3">
+              <input type="text" name="fspeci" placeholder="Specialization..." class="form-control col-md-6 m-3">
+
+              <input type="text" name="fdepart" placeholder="Department..." class="form-control col-md-6 m-3">
+            
+              <input type="file" name="fimg" class="form-control col-md-6 m-3">
+
+              <button class="btn btn-outline-success   m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Department</th>
+                <th>Photo</th>
+            </tr>
+            {% for i in faculties %}
+            <tr>
+              <th>
+                <a href="/admin/delete_faculty?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>{{i.fname}}</th>
+              <th>{{i.fspeci}}</th>
+              <th>{{i.fdepart}}</th>
+              <th>
+                <img src="/{{i.fimg}}" width="80px">
+              </th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+      </div>
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

@@ -1,0 +1,571 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+<!-- BCS -->
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Upload BCS Info :</h1>
+        <form action="/admin/save_bcs/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+            <textarea name="bcsdis"  class="form-control col-md-6 m-3">{{bcss.bcsdis}}</textarea>
+            <label>Image :</label>
+            <input type="file" name="bcsimg" class="form-control col-md-3 m-3">
+            <div class="col-md-3">
+                <img src="/{{bcss.bcsimg}}" width="100px">
+            </div>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+          </div>
+        </form>
+<hr>
+        <form action="/admin/save_bcscd/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Course Details : </label>
+              <textarea name="bcscd" class="form-control col-md-6 m-3">{{bcscds.bcscd}}</textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+        <form action="/admin/save_bcsis/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>International Student Categories : </label>
+              <textarea name="bcsis" class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            {% for i in bcsiss %}
+            <tr>
+              <th>Delete</th>
+              <th>{{i.bcsis}}</th>
+            </tr>
+            {% endfor %}
+          </table>
+
+<hr>
+
+
+        <form action="/admin/save_bcsnri/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>NRI Student Categories : </label>
+            <textarea name="bcsnri" class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            {% for i in bcsnris %}
+            <tr>
+            <th>Delete</th>
+            <th>{{i.bcsnri}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+<hr>
+
+        <form action="/admin/save_bcsadq/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Admission Queries : </label>
+              <textarea name="bcsadq" class="form-control col-md-6 m-3">{{bcsadqs.bcsadq}}</textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+
+        <form action="/admin/save_bcselg/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Eligibility : </label>
+            <textarea name="bcselg" class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            {% for i in bcselgs %}
+            <tr>
+            <th>Delete</th>
+            <th>{{i.bcselg}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+<hr>
+
+
+
+        <form action="/admin/save_bcsadp/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Admission Process : </label>
+            <textarea name="bcsadp" class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+          {% for i in bcsadps %}
+            <tr>
+            <th>Delete</th>
+            <th>{{i.bcsadp}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+      </div>
+
+
+      <hr class="mt-4">
+
+<!-- BA -->
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Upload BA Info :</h1>
+        <form action="/admin/save_ba/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+            <textarea name="badis"  class="form-control col-md-6 m-3">{{bas.badis}}</textarea>
+            <label>Image :</label>
+            <input type="file" name="baimg" class="form-control col-md-3 m-3">
+            <div class="col-md-3">
+                <img src="/{{bas.baimg}}" width="100px">
+            </div>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+          </div>
+        </form>
+<hr>
+        <form action="/admin/save_bacd/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Course Details : </label>
+              <textarea name="bacd" class="form-control col-md-6 m-3">{{bacds.bacd}}</textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+        <form action="/admin/save_bais/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>International Student Categories : </label>
+              <textarea name="bais" class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            {% for i in baiss %}
+            <tr>
+              <th>Delete</th>
+              <th>{{i.bais}}</th>
+            </tr>
+            {% endfor %}
+          </table>
+
+<hr>
+
+
+        <form action="/admin/save_banri/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>NRI Student Categories : </label>
+            <textarea name="banri" class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            {% for i in banris %}
+            <tr>
+            <th>Delete</th>
+            <th>{{i.banri}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+<hr>
+
+        <form action="/admin/save_baadq/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Admission Queries : </label>
+              <textarea name="baadq" class="form-control col-md-6 m-3">{{baadqs.baadq}}</textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+
+        <form action="/admin/save_baelg/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Eligibility : </label>
+            <textarea name="baelg" class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            {% for i in baelgs %}
+            <tr>
+            <th>Delete</th>
+            <th>{{i.baelg}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+<hr>
+
+
+
+        <form action="/admin/save_baadp/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Admission Process : </label>
+            <textarea name="baadp" class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+          {% for i in baadps %}
+            <tr>
+            <th>Delete</th>
+            <th>{{i.baadp}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+      </div>
+
+
+      <hr class="mt-4">
+
+<!-- BBA -->
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Upload BBA Info :</h1>
+        <form>
+          <div class="row p-4 justify-content-center">
+            <input type="text" placeholder="Discription..." class="form-control col-md-6 m-3">
+            <label>Image :</label>
+            <input type="file" class="form-control col-md-6 m-3">
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+          </div>
+        </form>
+<hr>
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Course Details : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>International Student Categories : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+              <th>Delete</th>
+              <th>Info</th>
+            </tr>
+  
+          </table>
+
+<hr>
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>NRI Student Categories : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+<hr>
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Admission Queries : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Eligibility : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+<hr>
+
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Admission Process : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+
+
+      </div>
+
+
+      <hr class="mt-4">
+
+<!-- BCom -->
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Upload B.Com. Info :</h1>
+        <form>
+          <div class="row p-4 justify-content-center">
+            <input type="text" placeholder="Discription..." class="form-control col-md-6 m-3">
+            <label>Image :</label>
+            <input type="file" class="form-control col-md-6 m-3">
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+          </div>
+        </form>
+<hr>
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Course Details : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>International Student Categories : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+              <th>Delete</th>
+              <th>Info</th>
+            </tr>
+  
+          </table>
+
+<hr>
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>NRI Student Categories : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+<hr>
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Admission Queries : </label>
+              <textarea class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+<hr>
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Eligibility : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+<hr>
+
+
+
+        <form>
+            <div class="row p-4 justify-content-center">
+                <label>Admission Process : </label>
+            <textarea class="form-control col-md-6 m-3"></textarea>
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Rules</th>
+            </tr>
+            <tr>
+            <th>Delete</th>
+            <th>Info</th>
+            </tr>
+
+        </table>
+
+
+
+
+      </div>
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

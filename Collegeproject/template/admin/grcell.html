@@ -1,0 +1,121 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+
+
+<hr>
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Grievance Redressal Cell :</h1>
+
+        <form action="/admin/save_grcell/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="grdis" class="form-control col-md-12 m-3">{{grdiss.grdis}}</textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            
+          </div>
+        </form>
+
+      </div>
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+       
+        <form action="/admin/save_grobj/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+ 
+            <textarea name="grobj" placeholder="Objectives..." class="form-control col-md-12 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>      
+              <th>Objectives</th>
+            
+          </tr>
+
+          {% for i in grobjs %}
+          <tr>
+            <th>
+              <a href="/admin/delete_grobj?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+            <th>{{i.grobj}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+       
+        <form action="/admin/save_grfun/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="grfun" placeholder="Functions..." class="form-control col-md-12 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>
+                   
+              <th>Functions</th>
+            
+          </tr>
+          {% for i in grfuns %}
+          <tr>
+            <th>
+              <a href="/admin/delete_grfun?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+            
+            <th>{{i.grfun}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+     
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

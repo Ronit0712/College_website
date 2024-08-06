@@ -1,0 +1,47 @@
+{% include "user/alu_navbar.html" %}
+
+    <div class="container-fluid m-0 p-5" style="  width:100%;">
+        <div class="row p-0"> 
+            <div class="col-md-12">
+                <h1 class="text-dark  mb-3" style="font-family:  Quicksand;"> About CCPAA.....🎯</h1>
+
+        <h6 class="text-center mt-5 mb-5">About the Institute</h6>
+
+
+          <p class="text-justify">{{aabouts.aboutdis}}</p>
+
+                  <hr style="height:2px;width: 100%;background: black;">
+
+                  <h6 class="mt-5 mb-5 text-center">CCPAA - Aims & Objectives</h6>
+
+                  <h6 class="text-justify ">The Alumni Association of Christ College focuses on the following objectives:</h6>
+
+                  <ol class="p-3">
+                    {% for i in aobjectives %}
+                      <li class="mt-3">{{i.aobjective}}</li>
+                    {%endfor%}
+                  <li class="mt-3">To encourage, build and promote close relations among the alumni.</li>
+
+                  <li class="mt-3">To promote a sustained sense of belonging to the Alma Mater among the Alumni by being in regular contact with them.</li>
+
+                  <li class="mt-3">To assist and support the efforts of Christ College – Pune in obtaining resources for development.</li>
+
+                  <li class="mt-3">To guide and assist the students of Christ college and  Alumni who have recently completed their graduation, to keep them engaged in productive pursuits useful to the society.</li>
+
+                  <li class="mt-3">To provide a forum for the Alumni, for exchange of ideas on academic, cultural and social issues by organizing  reunion activities of the Alumni.</li>
+
+                  <li class="mt-3">To let the alumni acknowledge their gratitude to their Alma Mater.</li>
+
+                  </ol>
+
+                  <hr class="mt-5 mb-5" style="height:2px;width: 100%;background: black;">
+
+
+            </div>
+        </div>
+    </div>
+
+   
+
+
+   

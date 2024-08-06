@@ -1,0 +1,169 @@
+{% include "user/navbar.html" %}
+<style>
+    .button-container {
+        height: 70px;
+        float: left;
+        width: 10%; /* Adjust as needed */
+    }
+
+   
+        .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+    @media(max-width:700px){
+        .button-container {
+        height: 70px;
+        float: left;
+        width: 100%; /* Adjust as needed */
+    }
+    }
+  
+</style>
+<div class="container-fluid  " style="background-color: black; overflow-x: hidden;">
+    <h1 class=" p-2 text-center mt-5 text-white " data-aos="fade-down">BA (Bachelor of Arts)</h1>
+    <div class="row p-5">
+
+
+        <div class="col-md-6">
+            <div class="flip-card m-2" style="width:400px;">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="/static/uploads/bcs.jpg" alt="Avatar" style="height: 350px ;width: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <p class="text-white text-justify mt-5 ">The B.Sc (Arts) program at CHRIST COLLEGE deals with the subject and topic related to Arts, computer application and its services. Our program polishes and sharpens software skill sets of the students like software development, software testing, operating system, JAVA programming and prepare them to take up the future challenges. The knowledge and skills learned during the course are incredibly valuable for today’s job market. The main aim of this program is to create quality professionals who can work in various sectors by applying computer technologies and software. Our program offers focused education that leads a student to corporate level thinking and provides practical exposure through simulation, project EXPO, conferences , seminars etc. this aids the students to gain an in depth understanding of theories</p>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container-fluid mt-5 mb-5 pt-3">
+    <div class="row pt-5">
+        <div class="col-md-12">
+            <div class="text-center bg-primary text-white m-2 p-3 button-container">
+                <div class="button-content" onclick="changeContent('button1')">Course Details</div>
+            </div>
+            <div class="text-center bg-primary text-white m-2 p-3 button-container">
+                <div class="button-content" onclick="changeContent('button2')">International Student Categories</div>
+            </div>
+            <div class="text-center bg-primary text-white m-2 p-3 button-container">
+                <div class="button-content" onclick="changeContent('button3')">NRI Student Category</div>
+            </div>
+            <div class="text-center bg-primary text-white m-2 p-3 button-container">
+                <div class="button-content" onclick="changeContent('button4')">Admission Queries</div>
+            </div>
+            <div class="text-center bg-primary text-white m-2 p-3 button-container">
+                <div class="button-content" onclick="changeContent('button5')">Eligibility</div>
+            </div>
+            <div class="text-center bg-primary text-white m-2 p-3 button-container">
+                <div class="button-content" onclick="changeContent('button6')">Admission Process</div>
+            </div>
+        </div>
+        <div class="col-md-12 p-5 bg-success text-white" id="content" style="height:auto;">
+            <h4 id="heading"></h4>
+            <p id="paragraph">The B.Sc (Arts) program at CHRIST COLLEGE deals with the subject and topic related to Arts, computer application and its services. Our program polishes and sharpens software skill sets of the students like software development, software testing, operating system, JAVA programming and prepare them to take up the future challenges. The knowledge and skills learned during the course are incredibly valuable for today’s job market. The main aim of this program is to create quality professionals who can work in various sectors by applying computer technologies and software. Our program offers focused education that leads a student to corporate level thinking and provides practical exposure through simulation, project EXPO, conferences , seminars etc. this aids the students to gain an in depth understanding of theories</p>
+            <ol id="list" style="display: none;">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function changeContent(button) {
+        var heading = document.getElementById('heading');
+        var paragraph = document.getElementById('paragraph');
+        var list = document.getElementById('list');
+
+        switch (button) {
+            case 'button1':
+                heading.textContent = '';
+                list.innerHTML = '';
+                paragraph.textContent = 'The B.Sc (Arts) program at CHRIST COLLEGE deals with the subject and topic related to Arts, computer application and its services. Our program polishes and sharpens software skill sets of the students like software development, software testing, operating system, JAVA programming and prepare them to take up the future challenges. The knowledge and skills learned during the course are incredibly valuable for today’s job market. The main aim of this program is to create quality professionals who can work in various sectors by applying computer technologies and software. Our program offers focused education that leads a student to corporate level thinking and provides practical exposure through simulation, project EXPO, conferences , seminars etc. this aids the students to gain an in depth understanding of theories';
+                heading.style.display = "none";
+                list.style.display = "none";
+                break;
+
+            case 'button2':
+                list.style.display = "block";
+                heading.textContent = 'International Student Categories';
+                list.innerHTML =
+                    `<li>Visit the Pune University website http://www.unipune.ac.in/dept/International%20Centre/default.htm and navigate to the "International Centre" section.</li>
+                            <li>Choose the program you want to apply for, whether it is Undergraduate or Postgraduate.</li>
+                            <li>Register for the International Student Admission by filling in the required information.</li>
+                            <li>Wait for a response from Pune University regarding your application status.</li>
+                            <li>Additionally, also apply directly with us by visiting our website https://christcollegepune.org/ and fill out the online application form with all the necessary details and submit it along with the required documents.</li>
+                            <li>Attend any required interviews or exams as part of the admission process.</li>`;
+                paragraph.textContent = '';
+                break;
+
+
+            case 'button3':
+                list.style.display = "block";
+                heading.textContent = 'NRI Student Category';
+                list.innerHTML =
+                    `<li>Visit the Pune University website http://www.unipune.ac.in/dept/International%20Centre/default.htm and navigate to the "International Centre" section.</li>
+                            <li>Choose the program you want to apply for, whether it is Undergraduate or Postgraduate.</li>
+                            <li>Register for the NRI Student Admission by filling in the required information.</li>
+                            <li>Wait for a response from Pune University regarding your application status.</li>
+                            <li>Additionally, also apply directly with us by visiting our website https://christcollegepune.org/ and fill out the online application form with all the necessary details and submit it along with the required documents.</li>
+                            <li>Attend any required interviews or exams as part of the admission process.</li>`;
+                paragraph.textContent = '';
+                break;
+
+
+            case 'button4':
+                list.style.display = "block";
+                heading.textContent = 'Contact details for Admission Queries';
+                list.innerHTML =
+                    `<li>College Reception: 7823839456</li>
+    
+                <li>College office:  7447727243 or 7447727242 </li>
+    
+                <li>College office Timings: Monday to Friday 8.30am to 4.00pm Saturday 8.30am to 1.30pm</li>
+                <li>(Office remains closed on Sundays, government holidays and any special events)</li>
+    
+                <li>Email Id: admission@christcollegepune.org</li>`;
+                paragraph.textContent = ``;
+                break;
+
+            case 'button5':
+                list.style.display = "block";
+                heading.textContent = 'Eligibility Criteria';
+                list.innerHTML =
+                    `<li>The candidate must have completed 10+2 or equivalent examination with Physics, Chemistry, and Mathematics as compulsory subjects.</li>
+                            <li>Candidates must have scored a minimum aggregate of 50% marks (45% for reserved categories) in the qualifying examination.</li>
+                            <li>Entrance exam scores may also be required for admission. Check the college website or contact the admission office for details on the entrance exam.</li>`;
+                paragraph.textContent = ``;
+                break;
+
+            case 'button6':
+                list.style.display = "block";
+                heading.textContent = 'Admission Process';
+                list.innerHTML =
+                    `<li>Fill out the online application form available on the college website.</li>
+                            <li>Submit the required documents along with the application form.</li>
+                            <li>Appear for the entrance exam (if applicable) and/or interview.</li>
+                            <li>Check the college website or contact the admission office for information on admission dates and procedures.</li>`;
+                paragraph.textContent = ``;
+                break;
+
+        }
+    }
+</script>
+
+{% include "user/footer.html" %}

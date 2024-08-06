@@ -1,0 +1,187 @@
+{% include "user/navbar.html" %}
+
+<style>
+    .Facalty h2{
+        margin-top: 30px;
+        margin-left: 160px;
+    }
+    .Facalty h3{
+        margin-left:260px;
+        font-weight: normal;  
+ 
+    }
+    
+    .table img{
+        height: 100px;
+        width: 80px;
+    }
+    
+    @media(max-width:668px)
+    {
+        .Facalty h2{
+        margin-top: 30px;
+        margin-left: 10px;
+    } 
+
+    .Facalty h3{
+        margin-left:80px;
+        font-weight: normal;  
+ 
+    }
+  
+    }
+   
+</style>
+
+
+<div class="container-fluid">
+    <div class="Facalty">
+      <div class="row p-4" >
+        <div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+            <h2 class=" fs-1 "><b>Faculty</b></h2>
+            <h3 class="fs-1">List</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container bg-light">
+    <div class="Facalty1">
+      <div class="row p-4">
+          <div class="col-md-12 ">
+            <form>
+               <div class="input-group  ">
+                  <input id="searchInput" type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+           </div>
+      </div>
+</div>
+<div class="container mb-5">
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <table id="dataTable" class="table">
+                    <thead>
+                        <tr>
+                            <td><b> Name</b> </td>
+                            <td><b> Specialization</b> </td>
+                            <td><b> DEPARTMENT</b> </td>
+                            <td><b> Photo</b> </td>
+                          </tr>
+                          </thead>
+                          <tbody class="table-group-divider">
+                            {% for i in faculties %}
+                            <tr>
+                              <td>{{i.fname}}</td>
+                              <td>{{i.fspeci}}</td>
+                              <td>{{i.fdepart}}</td>
+                              <td><img src="/{{i.fimg}}"></td>
+                            </tr>
+                            {% endfor %}
+                            <tr style="background-color: white;">
+                                <td> Dr. (Sr) PRIYA RAPHAEL</td>
+                              <td>	MATHEMATICS</td>
+                              <td>	SCIENCE</td>
+                              <td><img src="..."></td>
+                            </tr>
+                            <tr>
+                                <td> Dr. JIJI JOHNSON</td>
+                              <td>	POLITICAL SCIENCE</td>
+                              <td>	ARTS</td>
+                              <td><img src="..."></td>
+                            </tr>
+                             <tr style="background-color: white;">
+                                <td> Dr. GEETHA RAJAN </td>
+                              <td>	COSTS & WORKS ACCOUNTING</td>
+                              <td>	COMMERCE</td>
+                              <td><img src="..."></td>
+                            </tr>
+                            <tr>
+                                <td> Dr. JIJI JOHNSON </td>
+                              <td>	APPLIED ECONOMICS & <BR>BUSINESS MANAGEMENT</td>
+                              <td>	COMMERCE</td>
+                              <td><img src="..."></td>
+                            </tr> 
+                            <tr style="background-color: white;">
+                                <td>Dr. MANINDER KAUR </td>
+                              <td>		FINANCE</td>
+                              <td>		MANAGEMENT</td>
+                              <td><img src="..."></td>
+                            </tr>
+                            <tr>
+                                <td > Dr. PRIYA WAHAB</td>
+                              <td>	LINGUISTICS & INDO-ENGLISH<BR> LITERATURE</td>
+                              <td>	ARTS</td>
+                              <td><img src="..."></td>
+                            </tr>
+                            <tr style="background-color: white;">
+                                <td> Mr. ABHINAV NAIR</td>
+                              <td>	COMPUTER SCIENCE</td>
+                              <td>	MANAGEMENT</td>
+                              <td><img src="..."></td>
+                            </tr>
+                             <tr>
+                                <td> Mr. BAIJU SEBASTIAN </td>
+                              <td>	ECONOMICS</td>
+                              <td>	ARTS</td>
+                              <td><img src="..."></td>
+                            </tr>
+                            <tr style="background-color: white;">
+                                <td > Mr. BALASAHEB AWARE</td>
+                              <td>	MATHEMATICS</td>
+                              <td>	SCIENCE</td>
+                              <td><img src="..."></td>
+                            </tr>
+                            </tbody>
+                      </table>
+                  </div>
+            </div>
+        </div>
+     
+ </div>
+ <!-- Bootstrap JS and jQuery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <script>
+   $(document).ready(function() {
+     // Function to filter table rows based on search input
+     function filterTable(searchInput) {
+       var filter = searchInput.toUpperCase();
+       var table = document.getElementById("dataTable");
+       var rows = table.getElementsByTagName("tr");
+       for (var i = 0; i < rows.length; i++) {
+         var cells = rows[i].getElementsByTagName("td");
+         var found = false;
+         for (var j = 0; j < cells.length; j++) {
+           var cell = cells[j];
+           if (cell) {
+             var textValue = cell.textContent || cell.innerText;
+             if (textValue.toUpperCase().indexOf(filter) > -1) {
+               found = true;
+               break;
+             }
+           }
+         }
+         if (found) {
+           rows[i].style.display = "";
+         } else {
+           rows[i].style.display = "none";
+         }
+       }
+     }
+
+     // Event listener for search button click
+     $('#searchButton').click(function() {
+       var searchInput = $('#searchInput').val();
+       filterTable(searchInput);
+     });
+
+     // Event listener for search input change
+     $('#searchInput').on('input', function() {
+       var searchInput = $(this).val();
+       filterTable(searchInput);
+     });
+   });
+ </script>
+{% include "user/footer.html" %}

@@ -1,0 +1,126 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Slider Images</h1>
+       
+        <form action="/admin/save_aslide/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+            
+              <input type="file" name="aslide"  class="form-control col-md-6 m-3">
+
+              <button class="btn btn-outline-success m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>  
+                <th>Photo</th>
+            </tr>
+            {% for i in aslides %}
+            <tr>
+              <th>
+                <a href="/admin/delete_aslide?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>
+                <img src="/{{i.aslide}}" width="150px">
+              </th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+
+      </div>
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Career Opportunities :</h1>
+       
+        <form action="/admin/save_jobop/" method="post" >
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+
+              <input type="text" name="jobtitle" placeholder="Title" class="form-control col-md-6 m-3">
+
+              <input type="text" name="jobdis" placeholder="Discription" class="form-control col-md-6 m-3">
+
+              <input type="text" name="jobdate" placeholder="Deadline Date..." class="form-control col-md-6 m-3">
+
+
+              <button class="btn btn-outline-success m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>  
+                <th>Title</th>
+                <th>Discription</th>
+                <th>Deadline Date</th>
+            </tr>
+            {% for i in jobop %}
+            <tr>
+              <th>
+                <a href="/admin/delete_jobop?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>{{i.jobtitle}}</th>
+              <th>{{i.jobdis}}</th>
+              <th>{{i.jobdate}}</th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+
+      </div>
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Contact Info :</h1>
+       
+        <form action="/admin/save_contactinfo/" method="post">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+              <label>Address :</label>
+              <input type="text" name="address" value="{{contactinfos.address}}" class="form-control col-md-6 m-3">
+              <label>Reception Contact No. :</label>
+              <input type="text" name="contact" value="{{contactinfos.contact}}" class="form-control col-md-6 m-3">
+              <label>Office Contact :</label>
+              <input type="text" name="ofcontact" value="{{contactinfos.ofcontact}}" class="form-control col-md-6 m-3">
+              
+
+
+              <button class="btn btn-outline-success m-3">UPDATE</button>
+            </div>
+        </form>
+
+
+
+      </div>
+
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+{% include "admin/footer.html" %}

@@ -1,0 +1,76 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>News and Stories :</h1>
+       
+        <form action="/admin/save_ns/" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+            <div class="row p-4 justify-content-center">
+
+              <input type="file" name="nsimg" class="form-control col-md-6 m-3">
+
+              <input type="text" name="nsdate" placeholder="Ex. Feb 02, 2024" class="form-control col-md-6 m-3">
+
+              <input type="text" name="nstitle" placeholder="Title" class="form-control col-md-6 m-3">
+
+              <textarea name="nsdis" placeholder="Discription" class="form-control col-md-6 m-3"></textarea>
+
+              <input type="text" name="nors" placeholder="News/Story" class="form-control col-md-6 m-3">
+
+
+              <button class="btn btn-outline-success m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Image</th>  
+                <th>Date</th>  
+                <th>Title</th>
+                <th>Discription</th>
+                <th>News/Story</th>
+            </tr>
+            {% for i in nss %}
+            <tr>
+              <th>
+                <a href="/admin/delete_ns?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>
+                <img src="/{{i.nsimg}}" width="100px">
+              </th>  
+              <th>{{i.nsdate}}</th>  
+              <th>{{i.nstitle}}</th>
+              <th>{{i.nsdis}}</th>
+              <th>{{i.nors}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+      </div>
+
+     
+
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+{% include "admin/footer.html" %}

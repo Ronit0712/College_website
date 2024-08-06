@@ -1,0 +1,30 @@
+{% include "user/navbar.html" %}
+<div class="container-fluid p-5">
+	<div class="row" >
+		<div class="col-12" style="line-height: 1.0; color: darkblue;">
+			<h2 class="ml-5 fs-1"><b>NRI</b></h2>
+<h2 style="margin-left:80px; font-weight: normal;" class="fs-1">Student</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row bg-light"  >
+		<div class="col-12 p-5" >
+			<h5>Objectives</h5>
+			
+			<p>{% for i in nriobjs %}
+				{{i.nriobj}}<br>
+				{% endfor %}
+2. Choose the program you want to apply for, whether it is Undergraduate or Postgraduate.<br>
+3. Register for the International Student Admission by filling in the required information.<br>
+4. Wait for a response from Pune University regarding your application status.<br>
+5. Additionally, also apply directly with us by visiting our website  <br>
+6. https://christcollegepune.org/ and fill out the online application form with all the necessary <br>
+7. details and submit it along with the required documents.<br>
+8. Attend any required interviews or exams as part of the admission process.</p>
+		</div>
+	</div>
+</div>
+{% include "user/footer.html" %}
+

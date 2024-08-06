@@ -1,0 +1,61 @@
+{% include "user/alu_navbar.html" %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 col-lg-4 mt-5">
+			
+			<h5 class="mt-5">EVENT CATEGORIES</h5>
+			<button class="w-75 mt-3"><h5>All Events</h5></button>
+			<button class="w-75 mt-3"><h5>Past Events</h5></button>
+			<button class="w-75 mt-3"><h5>Upcoming Events</h5></button>
+		</div>
+		<div class="col-md-12 col-lg-8">
+			{% for i in events %}
+			<div class="card p-3 m-3 shadow">
+				<div class="row">
+					<div class="col-4 ">
+						<img src="/{{i.eventimg}}" height="250px" width="100%">
+					</div>
+					<div class="col-8 ">
+						<h5>{{i.eventtitle}}</h5>
+						<p>{{i.eventdate}}</p>
+ 						<p>{{i.eventdis}}</p>
+ 						<button class="btn btn-secondary"><h5>{{i.puevent}}</h5></button>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="card p-3 m-3 shadow">
+				<div class="row">
+					<div class="col-4 ">
+						<img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/eventlogos/sizea/14603971708497209.jpg" height="250px" width="100%">
+					</div>
+					<div class="col-8 ">
+						<h5>
+BOOK DONATION DRIVE</h5>
+						<p>Starts: Feb 16, 2024<br>
+Ends: Feb 29, 2024</p>
+ <p>Christ College-Pune, Pune</p>
+ <button class="btn btn-secondary"><h5>Past Event</h5></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="card p-3 m-3 shadow">
+				<div class="row">
+					<div class="col-4 ">
+						<img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/eventlogos/sizea/14603971705391546.jpg" height="250px" width="100%">
+					</div>
+					<div class="col-8 ">
+						<h5>Department of Commerce-Alumni Meet 2024</h5>
+						<p>Feb 17, 2024 - 11:15 AM</p>
+ <p>Christ College-Pune, Pune</p>
+ <button class="btn btn-secondary"><h5>Past Event</h5></button>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</div>

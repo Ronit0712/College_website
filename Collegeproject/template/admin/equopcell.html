@@ -1,0 +1,99 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+
+<hr>
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Equal Opportunity Cell :</h1>
+
+        <form action="/admin/save_eqopobj/" method="post">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="eqopobj" placeholder="Objectives..." class="form-control col-md-12 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>
+                    
+              <th>Objectives</th> 
+            
+          </tr>
+          {% for i in eqopobjs %}
+          <tr>
+            <th>
+              <a href="/admin/delete_eqopobj?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+            
+            <th>{{i.eqopobj}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+       
+        <form action="/admin/save_eqoprol/" method="post">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="eqoprol" placeholder="Rols and Responsibilities..." class="form-control col-md-12 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>
+                  
+              <th>Rols and Responsibilities</th>
+            
+          </tr>
+          {% for i in eqoprols %}
+          <tr>
+            <th>
+              <a href="/admin/delete_eqoprol?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+            
+            <th>{{i.eqoprol}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+     
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

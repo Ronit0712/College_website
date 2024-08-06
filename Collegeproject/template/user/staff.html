@@ -1,0 +1,110 @@
+{% include "user/navbar.html" %}
+
+<style>
+    
+    .staff_member h2{
+        margin-top: 30px;
+        margin-left: 160px;
+    }
+    .staff_member h3{
+        margin-left:260px;
+        font-weight: normal;  
+ 
+    }
+    .table img{
+        height: 110px;
+        width: 80%;
+    }
+    
+    @media(max-width:668px)
+    {
+        .staff_member h2{
+        margin-top: 30px;
+        margin-left: 10px;
+    } 
+
+    .staff_member h3{
+        margin-left:80px;
+        font-weight: normal;  
+ 
+    }
+    
+
+   
+    }
+   
+</style>
+
+
+<div class="container-fluid">
+    <div class="staff_member">
+      <div class="row p-4" >
+        <div class="col-12 " data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+            <h2 class=" fs-1 "><b>Administrative</b></h2>
+            <h3 class="fs-1">Staff Members</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="row mt-5">
+            <div class="col-12 table-responsiv">
+                <div class="table-responsive">
+                    
+                    <table class="table table-bordered text-center">
+                        <tr style="background-color: rgb(248, 248, 249);">
+                            <td><b> Name</b> </td>
+                            <td><b> DEPARTMENT</b> </td>
+                            <td><b> Photo</b> </td>
+                          </tr>
+                          <tbody class="table-group-divider">
+                            {% for i in staffs %}
+                            <tr style="background-color:rgb(248, 248, 249);">
+                              <td>{{i.stafname}}</td>
+                              <td>{{i.stafdep}}</td>
+                              <td><img src="/{{i.stafimg}}"></td>
+                            </tr>
+                            {% endfor %}
+                            <tr style="background-color: white;">
+                                <td>Mr. Sudhir  Sawant</td>
+                                <td>	  Office of Academic Support</td>
+                              <td><img src="https://christcollegepune.org/uploads/userfiles/EMP143.JPG"></td>
+                            </tr>
+                            <tr style="background-color:rgb(248, 248, 249);">
+                                <td> Mr. Nikhil  Salve</td>
+                                <td>	  Office of Academic Support</td>          
+                                 <td><img src="https://christcollegepune.org/uploads/userfiles/142(2).jpg"></td>
+                            </tr>
+                             <tr style="background-color: white;">
+                                <td> Ms. Seema Sandeep Mane  </td>
+                                <td>	  Office of Academic Support</td>
+                              <td><img src="https://christcollegepune.org/uploads/userfiles/EMP144.JPG"></td>
+                            </tr>
+                            <tr style="background-color:rgb(248, 248, 249);">
+                                <td> Mr. Francis F Jose </td>
+                              <td>	
+                                Office of Accounts</td>
+                              <td><img src="https://christcollegepune.org/uploads/userfiles/EMP145(1).jpg"></td>
+                            </tr> 
+                            <tr style="background-color: white;">
+                                <td>Ms. Milu C Das</td>
+                              <td>		Office Of Career Guidance And Placements</td>
+                           
+                              <td><img src="https://christcollegepune.org/uploads/userfiles/174(2).jpg"></td>
+                            </tr>
+                            <tr style="background-color:rgb(248, 248, 249);">
+                                <td >Mr. Abhilash  P K</td>
+                              <td>		IT Services</td>
+                            
+                              <td><img src="https://christcollegepune.org/uploads/userfiles/E6735.jpg"></td>
+                            </tr>
+                          
+                            </tbody>
+                      </table>
+                  </div>
+            </div>
+        </div>
+     
+ </div>
+ {% include "user/footer.html" %}

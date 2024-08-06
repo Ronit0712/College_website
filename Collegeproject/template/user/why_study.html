@@ -1,0 +1,28 @@
+{% include "user/navbar.html" %}
+
+<div class="container-fluid" style="overflow: hidden;">
+	<div class="row p-4" >
+		<div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+			<h2 class="ml-5 fs-1"><b>Why</b></h2>
+<h2 style="margin-left:80px; font-weight: normal;" class="fs-1">Study with Us</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid p-5">
+	<div class="row " >
+		{% for i in whystds %}
+		<div class="col-md-12 col-lg-4 p-4" data-aos="zoom-in"  >
+			<div style="border: 2px solid black;" class="card p-4 bg-info">
+			<div class="card p-3" style="border: 2px solid black;">
+						<h2>{{i.whytitle}}</h2>
+						<p>{{i.whydis}}</p>
+			</div></div>
+		</div>
+		{% endfor %}
+		
+
+		
+	</div>
+</div>
+{% include "user/footer.html" %}

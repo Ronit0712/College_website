@@ -1,0 +1,63 @@
+{% include "user/navbar.html" %}
+
+<div class="container-fluid">
+	<div class="row p-5">
+		<div class="col-12" style="line-height: 1.0; color: darkblue;">
+			<h2 class="ml-5 fs-1"><b>Student</b></h2>
+<h2 style="margin-left:80px; font-weight: normal;" class="fs-1">Grievance Redressal Cell</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row " >
+		<div class="col-12 p-5" >
+			<p>{{grdiss.grdis}}</p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" >
+	<div class="row p-5">
+		<div class="col-md-12 col-lg-6 bg-white" >
+			<h2 class="text-danger text-center p-2"  style="background-color: 	#F0F0F0;">        OBJECTIVES</h2>
+			{% for i in grobjs %}
+			{{i.grobj}}<br>
+			{% endfor %}
+		</div>
+
+		<div class="col-md-12 col-lg-6 bg-white" >
+			<h2 class="text-danger text-center p-2"  style="background-color: 	#F0F0F0;">                  FUNCTION</h2>
+			{% for i in grfuns %}
+			{{i.grfun}}<br>
+			{% endfor %}
+
+
+
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid p-5">
+	<div class="row bg-white">
+		<div class="col-12 p-3">
+			<span><h5>
+Student Grievance Redressal Form</span><span><button class="p-2 btn btn-danger " style="float: right;">Clike here</button></span>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 p-3">
+			<span><h5>
+Student Grievance Redressal (Exam Form)</span><span><button class="p-2 btn btn-danger " style="float: right;">Clike here</button></span>
+		</div>
+	</div>
+
+	<div class="row ">
+		<div class="col-12 p-3">
+			<span><h5>
+Members</span><span><button class="p-2 btn btn-danger " style="float: right;">Clike here</button></span>
+		</div>
+	</div>
+</div>
+{% include "user/footer.html" %}

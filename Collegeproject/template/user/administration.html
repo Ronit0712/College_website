@@ -1,0 +1,111 @@
+{% include "user/navbar.html" %}
+
+<style>
+   
+    .addministrator h2{
+        margin-top: 30px;
+        margin-left: 160px;
+    }
+    .addministrator h3{
+        margin-left:260px;
+        font-weight: normal;  
+ 
+    }
+    .addministrator1{
+        padding-left: 140px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-right: 140px;
+    }
+    .add{
+        width: 100%;
+        text-align: center;
+        background-color: white;
+    }
+    .add img{
+        width: 100%;
+        height: 250px;
+        padding: 50px;
+       
+       
+    }
+    @media(max-width:668px){
+        .addministrator h2{
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+    .addministrator h3{
+        margin-left:110px;
+        font-weight: normal;
+        margin-bottom: 50px;  
+    }
+    .add img{
+        width: 100%;
+        height: 250px;
+        padding: 50px;
+       
+       
+    }
+    .addministrator1{
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        padding-right: 10px;
+    }
+ }
+   
+</style>
+
+
+<div class="container-fluid">
+    <div class="addministrator">
+      <div class="row p-4" >
+        <div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+            <h2 class=" fs-1 "><b>Administration</b></h2>
+            <h3 class="fs-1">Members</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-light" >
+    <div class="addministrator1">
+      <div class="row ">
+        {% for i in adminis %}
+            <div class="col-md-3" >
+                <div class="add">
+                   <img src="/{{i.adminiimg}}">
+                   <div class="add-body">
+                     <p><b>{{i.admininame}}</b></h5>
+                     <p class="add-text" style="padding-bottom: 20px;">{{i.adminiposition}}</p>
+   
+                   </div>
+                 </div>
+            </div>
+        {% endfor %}
+            <div class="col-md-3" >
+                <div class="add">
+                   <img src="assest/images/gif/ad3.jpg">
+                   <div class="add-body">
+                     <p><b>Dr(Fr)martin K J CMI</b></h5>
+                     <p class="add-text" style="padding-bottom: 20px;">Administrator</p>
+   
+                   </div>
+                 </div>
+            </div>
+            <div class="col-md-3" >
+                <div class="add">
+                   <img src="assest/images/gif/ad4.jpg">
+                   <div class="add-body">
+                     <p><b>Dr(Fr)Arun Antony Chully CMI</b></h5>
+                     <p class="add-text" style="padding-bottom: 20px;">Director/Principal</p>
+                 </div>
+            </div>
+            </div>
+        
+        </div>
+
+        </div>
+     </div>
+ </div>
+
+{% include "user/footer.html" %}

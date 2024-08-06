@@ -1,0 +1,55 @@
+{% include "user/navbar.html" %}
+
+<style>
+
+    .massage1 p{
+margin-left: 123px;
+margin-right: 123px;
+text-align: justify;
+    }
+    .massage1 img{
+        height: 250px;
+        width: 100%;
+        float: left;
+        margin-left: 100px;
+    }
+    
+ @media(max-width:668px){
+    .massage1 p{
+margin-left: 0px;
+margin-right:0px;
+
+ }
+ .massage1 img{
+        height: 250px;
+        width: 100%;
+        float: left;
+       margin-left: 0px;
+    }
+ }
+</style>
+
+
+
+<div class="container">
+    <div class="row p-4" >
+        <div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+            <h2 class=" fs-1" style="margin-left: 30px;"><b>Message</b></h2>
+<h2 style="margin-left:100px; font-weight: normal;" class="fs-1">from Director</h2>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-light" >
+    <div class="massage1">
+    <div class="row ">
+        <div class="col-md-2 mt-4" >
+            <img class="rounded-4 shadow" src="/{{msgds.msgdimg}}">
+         </div>
+         <div class="col-md-10 mt-5" >
+            <p data-aos="fade-out">{{msgds.msgdis}}</p>      
+        </div>
+        </div>
+     </div>
+ </div>
+
+{% include "user/footer.html" %}

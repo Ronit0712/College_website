@@ -1,0 +1,78 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>About Us :</h1>
+       
+        <form action="/admin/save_aabout/" method="post">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+
+
+              <textarea name="aboutdis" placeholder="Discription" class="form-control col-md-12 m-3">{{aabouts.aboutdis}}</textarea>
+
+
+              <button class="btn btn-outline-success m-3">UPDATE</button>
+            </div>
+        </form>
+
+       
+      </div>
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Objectives :</h1>
+       
+        <form action="/admin/save_aobjective/" method="post">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+
+
+              <input name="aobjective" placeholder="Objectives..." class="form-control col-md-12 m-3">
+
+
+              <button class="btn btn-outline-success m-3">UPLOAD</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Objectives</th>  
+               
+            </tr>
+            {% for i in aobjectives %}
+            <tr>
+              <th>
+                <a href="/admin/delete_aobjective?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash"></i></button>
+                </a>
+              </th>
+              <th>{{i.aobjective}}</th>  
+           
+            </tr>
+            {% endfor %}
+          </table>
+
+       
+      </div>
+
+
+     
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+{% include "admin/footer.html" %}

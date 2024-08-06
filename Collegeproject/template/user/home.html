@@ -1,0 +1,264 @@
+{% include "user/navbar.html" %}
+<style>
+   
+
+
+    .video-overlay {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        height: 200px;
+        width: 500px;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    @media(max-width:700px){
+        .video-overlay{
+       display: none;  
+        }
+
+        video{
+            overflow: hidden;
+            height: 200px !important;
+            width: 100%;
+
+        }
+
+        .hcards{
+            margin-top: 50px !important;
+            width: 500px !important;
+        }
+        
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        text-align: center;
+        padding:33px ;
+    }
+
+    .slide.active {
+        opacity: 1;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var slides = document.querySelectorAll('.slide');
+        var currentIndex = 0;
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(function (slide) {
+                slide.classList.remove('active');
+            });
+            // Show the slide at the given index
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex++;
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
+        }
+
+        // Initially show the first slide
+        showSlide(currentIndex);
+
+        // Automatically switch slides every 4 seconds
+        setInterval(nextSlide, 4000);
+    });
+</script>
+
+<!-- video -->
+<div class="container-fluid mt-1" style="overflow-x:hidden ;">
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <video playsinline="playsinline" autoplay="" muted="muted" loop="" style="transform: scale(1.71,1.0) ; height: 500px; width: 100%;">
+               
+                <source src="/{{videos.hvideo}}" type="video/mp4">
+               
+            </video>
+            <div class="video-overlay ">
+                <div class="slide">
+                    <h2>Slide 1 Title</h2>
+                    <p>As a C.M.I. Educational Institution, the college regards education as integral to the formation of the human person for the fulfillment of his/her individual and social responsibilities.</p>
+                </div>
+                <div class="slide">
+                    <h2>Slide 2 Title</h2>
+                    <p>As a C.M.I. Educational Institution, the college regards education as integral to the</p>
+                </div>
+                <div class="slide">
+                    <h2>Slide 3 Title</h2>
+                    <p>As a C.M.I. Educational Institution, the college regards education as integral to the formation of the human person for the fulfillment of his/her individual and social responsibilities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- departments -->
+<div class="container-fluid">
+    <div class="row justify-content-center p-4">
+        {% for i in departments %}
+        <div class="col-12 hcards col-md-3 bg-white shadow ms-4 me-4 p-0" style="margin-top:-70px; z-index: 999; height: 500px; width: 280px; ">
+            <p class="bg-light border-bottom border-5 border-dark text-center m-0">{{i.dname}}</p>
+            <img src="/{{i.dimg}}" width="94%" class="m-2  h-25">
+            <p class="text-center m-2 bg-light">{{i.ddis}}</p>
+            <div class="d-grid gap-2 mx-auto p-2 mt-5">
+                <button class="btn btn-outline-primary ">BCom (Bachelor of Commerce)</button>
+                <button class="btn btn-outline-primary ">MCom (Masters of Commerce)</button>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-12 hcards col-md-3 bg-white shadow ms-4 me-4 p-0" style="margin-top:-70px; z-index: 999; height: 500px; width: 280px; ">
+            <p class="bg-light border-bottom border-5 border-dark text-center m-0">DEPARTMENT OF SCIENCE</p>
+            <img src="/static/uploads/bcs.jpg" width="94%" class="m-2  h-25">
+            <p class="text-center m-2 bg-light"> Strengthen your logical skills, develop ability of problem solving, learn to innovate software products, build strong foundation for research development in Computer Science and be ready to meet global tech requirements.
+            </p>
+            <div class="d-grid gap-2 mx-auto p-2 mt-2">
+                <button class="btn btn-outline-primary ">BSc (Bachelor of Computer Science)</button>
+                <button class="btn btn-outline-primary ">MSc (Master of Computer Science)</button>
+            </div>
+        </div>
+
+        <div class="col-12 hcards col-md-3 bg-white shadow ms-4 me-4 p-0" style="margin-top:-70px; z-index: 999; height: 500px; width: 280px; ">
+            <p class="bg-light border-bottom border-5 border-dark text-center m-0">DEPARTMENT OF ARTS</p>
+            <img src="/static/uploads/bcs.jpg" width="94%" class="m-2  h-25">
+            <p class="text-center m-2 bg-light"> Encompassing economic concepts and experiential learning towards achieving academic excellent.
+            </p>
+            <div class="d-grid gap-2 mx-auto p-2 mt-5">
+                <button class="btn btn-outline-primary ">BA (Economics)</button>
+            </div>
+        </div>
+
+        <div class="col-12 hcards col-md-3 bg-white shadow ms-4 me-4 p-0" style="margin-top:-70px; z-index: 999; height: 500px; width: 280px; ">
+            <p class="bg-light border-bottom border-5 border-dark text-center m-0">DEPARTMENT OF MANAGEMENT</p>
+            <img src="/static/uploads/bcs.jpg" width="94%" class="m-2  h-25">
+            <p class="text-center m-2 bg-light"> Developing real-life skills with adequate technical abilities to be globally competent management professionals exposed to a plethora of career opportunities. 
+            </p>
+            <div class="d-grid gap-2 mx-auto p-2 mt-5">
+                <button class="btn btn-outline-primary ">BBA (Bachelor of Business Administration)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<hr>
+
+<!-- student life -->
+<div class="container">
+    <div class="row p-4" >
+        <div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+            <h2 class=" fs-1" style="margin-left: 30px;"><b>Students</b></h2>
+<h2 style="margin-left:100px; font-weight: normal;" class="fs-1">Life in Campus</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid bg-light" >
+    <div class="about1">
+    <div class="row justify-content-center p-4">
+        {% for i in stulifes %}
+        <div class="col-md-3 card p-2 m-3" style="width: 300px;" >
+           <div class="card-header">
+            <img src="/{{i.stulimg}}" alt="img.." class="w-100 h-100 ">
+           </div>
+           <div class="card-body">
+            <p class="text-primary fs-4" >{{i.stultitle}}</p>
+            <p> {{i.stuldis}}</p>
+           </div>
+         </div>
+        {% endfor %}
+         <div class="col-md-3 card p-2 m-3" style="width: 300px;" >
+            <div class="card-header">
+             <img src="" alt="img.." class="w-100 h-25 m-1">
+            </div>
+            <div class="card-body">
+             <p class="text-primary fs-4" > Hostel</p>
+             <p> The college facilitates a comfortable accommodation for both boys and girls in the hostels separately set in the close vicinity of the campus. Maintaining quality standard of living and ensuring a protected, safe and secure environment of discipline,
+            </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 card p-2 m-3" style="width: 300px;" >
+            <div class="card-header">
+             <img src="" alt="img.." class="w-100 h-25 m-1">
+            </div>
+            <div class="card-body">
+             <p class="text-primary fs-4" >NSS</p>
+             <p>National Service Scheme (NSS) at Christ College offers its students the opportunity to engage in a wide range of community service activities and programs, enabling them to develop skills, explore interests, imbibe values and make a positive impact on society.
+            </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 card p-2 m-3" style="width: 300px;" >
+            <div class="card-header">
+             <img src="" alt="img.." class="w-100 h-25 m-1">
+            </div>
+            <div class="card-body">
+             <p class="text-primary fs-4" >Physical Education & Sports</p>
+             <p> Physical Education & Sports encourage emotional strength, develop character and improve physical competence thus contributing towards living a healthy active lifestyle
+            </p>
+            </div>
+          </div>
+        </div>
+     </div>
+ </div>
+
+
+ <hr>
+
+<!-- Facilities -->
+ <div class="container">
+     <div class="row p-4" >
+         <div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+             <h2 class=" fs-1" style="margin-left: 30px;"><b>Campus</b></h2>
+ <h2 style="margin-left:100px; font-weight: normal;" class="fs-1">Facilities</h2>
+         </div>
+     </div>
+ </div>
+
+
+ <div class="container-fluid bg-light mb-5 p-4"  >
+    <div class="about1">
+    <div class="row justify-content-center">
+        <div class="col-12 p-5" >
+            <p data-aos="fade-in">{{facilities.facidis}}</p>
+        </div>
+
+        <div class="col-md-6"style="height: 300px;">
+            <img src="/{{facilities.faciimg}}" class="w-100 h-100 rounded-3" >
+        </div>
+
+        <div class="col-md-3 text-start">
+            <p class="fs-3"><i class="fa fa-play me-3"></i>  Labs</p>
+            <p class="fs-3"><i class="fa fa-play me-3"></i>  Library</p>
+            <p class="fs-3"><i class="fa fa-play me-3"></i>  IT Services</p>
+            <p class="fs-3"><i class="fa fa-play me-3"></i>  Academics</p>
+            <p class="fs-3"><i class="fa fa-play me-3"></i>  Play Ground</p>
+
+        </div>
+         
+     </div>
+ </div>
+</div>
+{% include "user/footer.html" %}

@@ -1,0 +1,46 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Messsage From Director :</h1>
+       
+
+
+        <form action="/admin/save_msgd/" method="post" enctype="multipart/form-data">
+          {% csrf_token%}
+            <div class="row p-4 justify-content-center">
+              
+              <textarea name="msgdis" class="form-control col-md-6 m-3">{{msgds.msgdis}}</textarea>
+            
+              <input type="file" name="msgdimg"  class="form-control col-md-6 m-3">
+
+              <div class="col-md-6 text-center mt-3" >
+                <img src="/{{msgds.msgdimg}}" width="150px">
+              </div>
+
+              <button class="btn btn-outline-success m-3">UPDATE</button>
+            </div>
+        </form>
+
+
+
+
+      </div>
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

@@ -1,0 +1,29 @@
+{% include "user/alu_navbar.html" %}
+
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		{% for i in gallerys %}
+		<div class="col-md-12 col-lg-4 p-2">
+			<div class="card-body">
+				<img src="/{{i.galleryimg}}" height="300px" width="100%">
+				<h5 class="pb-4 mt-2">{{i.imgdis}}</h5>
+			</div>
+		</div>
+		{% endfor %}
+		<div class="col-md-12 col-lg-4 p-2">
+			<div class="card-body">
+				<img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/gallary_photos/t1675144931_GL7N0WiYep.jpg" height="300px" width="100%">
+				<h5 class="mt-2">Department of Arts Reunion-29th January 2023</h5>
+			</div>
+		</div>
+		
+		
+		<div class="col-md-12 col-lg-4 p-2">
+			<div class="card-body">
+				<img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/gallary_photos/t1636354271_sE1WWwurTP.jpg" height="300px" width="100%">
+				<h5 class="mt-2">Alumni Reunion2018</h5>
+			</div>
+		</div>
+		
+	</div>
+</div>

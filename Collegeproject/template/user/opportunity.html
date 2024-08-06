@@ -1,0 +1,58 @@
+{% include "user/navbar.html" %}
+<div class="container-fluid p-5">
+	<div class="row" >
+		<div class="col-12" style="line-height: 1.0; color: darkblue;">
+			<h2 class="ml-5 fs-1"><b>Equal</b></h2>
+<h2 style="margin-left:80px; font-weight: normal;" class="fs-1">Opportunity Cell</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row bg-light"  >
+		<div class="col-12 p-5" >
+			<h5>Objectives</h5>
+			{% for i in eqopobjs %}
+			<p>{{i.eqopobj}}<br>
+			{% endfor %}
+
+Promoting and ensuring Diversity, Equity and Inclusion among students, teaching and non-teaching staff and all the stakeholders in the campus.<br>
+Preventing perception of discriminations thus budding healthy interpersonal relationships.<br>
+Facilitating a barrier free procedure/ formalities for admissions/ registration for students belonging to the minority category of the society.<br>
+Addressing grievances of students, teachers and non- teaching staff of the minority group. </p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row bg-light"  >
+		<div class="col-12 p-5" >
+			<h5>Roles and Responsibilities</h5>
+			{% for i in eqoprols %}
+			<p>{{i.eqoprol}}<br>
+			{% endfor %}
+Establishing measures to prevent and prohibit any form of discriminations in the campus.<br>
+Ensuring that no one in the campus is harassed/ victimized or treated differently in any facilities provided by the campus.<br>
+Ensuring that students belonging to the minority group are provided with the permitted privileges by the University.<br>
+Conducting workshops and seminars to promote Diversity, Equity and Inclusion.<br>
+Ensuring that the website carries note on relevant anti-discrimination measures adopted by the institution and the punishments awarded for breach thereof for benefit of public awareness.<br>
+Approve the report activities of the cell and ensure its submissions to the authorities.</p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid p-5" >
+	
+
+	<div class="row" style="background-color: 	#F0F0F0;">
+		<div class="col-12 p-3">
+			<span><h5>
+
+
+     Equal Opportunity Cell/ Minority/ SC-ST/ OBC Cell</span><span><button class="p-2 btn btn-danger " style="float: right;">Clike here</button></span>
+		</div>
+	</div>
+
+
+</div>
+{% include "user/footer.html" %}

@@ -1,0 +1,99 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+
+<hr>
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Electoral Literary Club :</h1>
+
+        <form action="/admin/save_eleobj/" method="post">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="eleobj" placeholder="Objectives..." class="form-control col-md-12 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>
+                    
+              <th>Objectives</th> 
+            
+          </tr>
+          {% for i in eleobjs %}
+          <tr>
+            <th>
+              <a href="/admin/delete_eleobj?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+            
+            <th>{{i.eleobj}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+       
+        <form action="/admin/save_elerol/" method="post">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="elerol" placeholder="Rols and Responsibilities..." class="form-control col-md-12 m-3"></textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPLOAD</button>
+            
+          </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+          <tr>
+              <th>Action</th>
+                  
+              <th>Rols and Responsibilities</th>
+            
+          </tr>
+          {% for i in elerols %}
+          <tr>
+            <th>
+              <a href="/admin/delete_elerol?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+              </a>
+            </th>
+            
+            <th>{{i.elerol}}</th>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+
+
+
+     
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

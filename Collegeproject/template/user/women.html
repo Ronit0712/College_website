@@ -1,0 +1,57 @@
+{% include "user/navbar.html" %}
+<div class="container-fluid ">
+	<div class="row p-5" >
+		<div class="col-12" style="line-height: 1.0; color: darkblue;">
+			<h2 class="ml-5 fs-1"><b>Women</b></h2>
+<h2 style="margin-left:80px; font-weight: normal;" class="fs-1"> Cell</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row bg-light" >
+		<div class="col-12 p-5" >
+			<p>{{wodiss.wodis}}</p>
+			<h2 class="text-danger">OBJECTIVE</h2>
+			{% for i in woobjs %}
+			<p>{{i.woobj}}</p>
+			{% endfor %}
+			<h2 class="text-danger">FUNCTIONS</h2>
+			{% for i in wofuns %}
+			<p>{{i.wofun}}<br>
+			{% endfor %}
+2. Raise awareness for equal opportunities regardless of gender.<br>
+3. Offer counselling and support for female students and staff facing challenges.<br>
+4. Organize awareness programs and seminars on women’s rights, self-defense, and more.<br>
+5. Works to establish a safe and discrimination-free environment.<br>
+6. Advocate for women's rights and work on policy changes to address gender-related concerns.<br>
+7. Investigate and take action on complaints (if any) related to gender discrimination and harassment.<br>
+8. Focus on women's health and mental well-being through programs and awareness.<br>
+9.  Recognize and celebrate the achievements of female members.<br>
+10. Promote awareness about women's rights and gender sensitivity.</p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid p-5">
+	
+
+	<div class="row" >
+		<div class="col-12 p-3">
+			<span><h5>
+
+
+Members</span><span><button class="p-2 btn btn-danger " style="float: right;">Clike here</button></span>
+		</div>
+	</div>
+
+	<div class="row bg-white">
+		<div class="col-12 p-3">
+			<span><h5>
+Activities conducted
+
+</span><span><button class="p-2 btn btn-danger " style="float: right;">Clike here</button></span>
+		</div>
+	</div>
+</div>
+{% include "user/footer.html" %}

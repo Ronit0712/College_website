@@ -1,0 +1,46 @@
+{% include "user/navbar.html" %}
+
+<style>
+   
+    .History h2{
+        margin-left: 70px;
+         font-size: 40px;
+    }
+    .History1 p{
+margin-left: 123px;
+margin-right: 123px;
+text-align: justify;
+    }
+    
+    
+ @media(max-width:668px){
+    .History1 p{
+margin-left: 0px;
+margin-right:0px;
+
+ }
+ }
+</style>
+
+
+
+<div class="container">
+    <div class="History">
+    <div class="row" >
+        <div class="col-12" data-aos="zoom-out" style="color: darkblue; margin-top: 50px;margin-bottom: 30px;">
+            <h2><b>History</b></h2>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container-fluid bg-light" >
+    <div class="History1">
+    <div class="row ">
+        <div class="col-12 p-5" >
+            <p data-aos="fade-in">{{histories.history}}</p>
+         </div>
+        </div>
+     </div>
+ </div>
+
+{% include "user/footer.html" %}

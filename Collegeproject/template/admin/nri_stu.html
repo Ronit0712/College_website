@@ -1,0 +1,54 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+ 
+
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>NRI Student :</h1>
+       
+
+
+        <form action="/admin/save_nriobj/" method="post">
+          {% csrf_token %}
+            <div class="row p-4 justify-content-center">
+                <label>Objectives : </label>
+              <textarea name="nriobj" class="form-control col-md-6 m-3"></textarea>
+              <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            </div>
+        </form>
+
+        <table class="table table-sm table-borderd  text-center">
+            <tr>
+                <th>Action</th>
+                <th>Objective</th>
+            </tr>
+            {% for i in nriobjs %}
+            <tr>
+              <th>
+                <a href="/admin/delete_nriobj?id={{i.id}}">
+                  <button class="btn"><i class="fa fa-trash "></i></button>
+                </a>
+              </th>
+              <th>{{i.nriobj}}</th>
+            </tr>
+            {% endfor %}
+          </table>
+
+
+      </div>
+
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

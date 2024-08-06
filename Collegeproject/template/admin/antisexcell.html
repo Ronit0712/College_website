@@ -1,0 +1,48 @@
+{% include "admin/navbar.html" %}
+<!-- page content -->
+<div class="right_col" role="main">
+
+
+
+<hr>
+    <!-- Form -->
+    <div class="row justify-content-center p-3">
+
+
+
+
+      <hr class="mt-4">
+
+      <div class="col-md-8 bg-white rounded-5 shadow p-4">
+        <h1>Anti Sexual Harassment cell :</h1>
+        <form action="/admin/save_sexh/" method="post">
+          {% csrf_token %}
+          <div class="row p-4 justify-content-center">
+
+            <textarea name="sexhdis"  class="form-control col-md-12 m-3">{{sexhdiss.sexhdis}}</textarea>
+
+            <button class="btn btn-outline-success col-md-2 m-3">UPDATE</button>
+            
+          </div>
+        </form>
+
+      
+
+      </div>
+
+
+
+
+
+
+     
+
+    </div>
+
+    <!-- /Form -->
+
+
+  </div>
+  <!-- /page content -->
+ 
+{% include "admin/footer.html" %}

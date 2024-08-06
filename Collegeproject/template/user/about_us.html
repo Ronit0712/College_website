@@ -1,0 +1,61 @@
+{% include "user/navbar.html" %}
+<style>
+    .about1 p{
+    margin-left: 123px;
+    margin-right: 123px;
+    text-align: justify;
+        }
+    .about1 img{
+        height: 600px;
+        width: 100%;
+        float: left;
+       
+    }
+    
+ @media(max-width:668px){
+    .about1 p{
+    margin-left: 0px;
+    margin-right:0px;
+
+ }
+ .about1 img{
+        height: 300px;
+        width: 100%;
+        float: left;
+        margin-left: 35px;
+    }
+ }
+</style>
+
+
+
+<div class="container">
+    <div class="row p-4" >
+        <div class="col-12" data-aos="zoom-out" style="line-height: 1.0; color: darkblue;">
+            <h2 class=" fs-1" style="margin-left: 30px;"><b>About</b></h2>
+<h2 style="margin-left:100px; font-weight: normal;" class="fs-1">Us</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid bg-light" >
+    <div class="about1">
+    {% for i in about_uss %}
+    <div class="row justify-content-center">
+        <div class="col-12 p-5" >
+            <p data-aos="fade-in">
+                {{i.aboutus_dis}}
+            </p>
+         </div>
+         <div class="col-10 " >
+          <center> <img src="/{{i.aboutus_img}}"class="w-100 h-100 rounded-5 shadow" data-aos="zoom-in"></center> 
+         </div>
+        
+        </div>
+    {% endfor %}
+     </div>
+ </div>
+
+ {% include "user/footer.html" %}
